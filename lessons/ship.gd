@@ -6,6 +6,10 @@ var steering_factor := 3.0
 var health := 10
 var gem_count := 0
 
+func _ready() -> void:
+	area_entered.connect(_on_area_entered)
+	set_health(health)
+
 func _process(delta: float) -> void:
 	var direction := Vector2(0, 0)
 	direction.x = Input.get_axis("move_left", "move_right")
