@@ -22,7 +22,6 @@ outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Ship" type="Area2D"]
-position = Vector2(1125, 498)
 script = ExtResource("4_p1sls")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -57,12 +56,13 @@ offset_top = -66.0
 offset_right = 60.0
 offset_bottom = -57.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_5xifn")
+value = 50.0
 show_percentage = false
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="UI"]
-position = Vector2(-28, -86)
-scale = Vector2(0.75, 0.75)
+position = Vector2(-28.875015, -86)
+scale = Vector2(0.7782263, 0.75)
 texture = ExtResource("5_h3paj")
 
 [node name="GemCount" type="Label" parent="UI"]
