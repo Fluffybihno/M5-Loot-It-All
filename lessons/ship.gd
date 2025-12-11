@@ -9,11 +9,16 @@ var gem_count := 0
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 	set_health(health)
+	
+	
 
 func _process(delta: float) -> void:
 	var direction := Vector2(0, 0)
+	var viewport_size := get_viewport_rect().size
 	direction.x = Input.get_axis("move_left", "move_right")
 	direction.y = Input.get_axis("move_up", "move_down")
+	position.x = wrapf(position.x, 0, viewport_size.x)
+	position.y = wrapf(position.y, 0, viewport_size.y)
 
 	if direction.length() > 1.0:
 		direction = direction.normalized()
@@ -40,3 +45,6 @@ func _on_area_entered(area_that_entered: Area2D) -> void:
 		set_gem_count(gem_count + 1)
 	if area_that_entered.is_in_group("healing_item"):
 		set_health(health + 10)
+
+
+	

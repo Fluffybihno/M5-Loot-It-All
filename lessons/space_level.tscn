@@ -16,7 +16,5 @@ position = Vector2(940, 541)
 [node name="RandomItemPlacer" parent="." instance=ExtResource("3_etm7e")]
 
 [node name="Gem" parent="." instance=ExtResource("4_dru4e")]
-position = Vector2(661, 460)
 
 [node name="HealthPack" parent="." instance=ExtResource("5_kd2gs")]
-position = Vector2(688, 415)
