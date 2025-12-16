@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://btkjymc78ap8d"]
+[gd_scene load_steps=7 format=3 uid="uid://btkjymc78ap8d"]
 
 [ext_resource type="PackedScene" uid="uid://dmv50krf4bo5r" path="res://lessons/ship.tscn" id="2_2j1u5"]
 [ext_resource type="PackedScene" uid="uid://bxfevggvxo634" path="res://assets/background/space_background.tscn" id="3_e6xy1"]
 [ext_resource type="PackedScene" uid="uid://b1yl6aosq3kty" path="res://lessons/random_item_placer.tscn" id="3_etm7e"]
 [ext_resource type="PackedScene" uid="uid://djdg6fagrspd0" path="res://lessons/gem.tscn" id="4_dru4e"]
 [ext_resource type="PackedScene" uid="uid://dy5y3hr4yh2ky" path="res://lessons/health_pack.tscn" id="5_kd2gs"]
+[ext_resource type="AudioStream" uid="uid://c73fqri87pfin" path="res://assets/audio/BG_Music.ogg" id="6_kd2gs"]
 
 [node name="Level" type="Node2D"]
 
@@ -18,3 +19,8 @@ position = Vector2(940, 541)
 [node name="Gem" parent="." instance=ExtResource("4_dru4e")]
 
 [node name="HealthPack" parent="." instance=ExtResource("5_kd2gs")]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_kd2gs")
+volume_db = -2.0
+autoplay = true

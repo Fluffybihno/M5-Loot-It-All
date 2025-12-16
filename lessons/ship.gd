@@ -1,5 +1,7 @@
 extends Area2D
 
+@onready var thruster_sound_player: AudioStreamPlayer = $ThrusterSoundPlayer
+
 var max_speed := 1200.0
 var velocity := Vector2(0, 0)
 var steering_factor := 3.0
@@ -10,15 +12,24 @@ func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 	set_health(health)
 	
-	
-
 func _process(delta: float) -> void:
 	var direction := Vector2(0, 0)
 	var viewport_size := get_viewport_rect().size
 	direction.x = Input.get_axis("move_left", "move_right")
 	direction.y = Input.get_axis("move_up", "move_down")
+	
+	var is_moving := direction.length() > 0.0
+	if is_moving and not thruster_sound_player.playing:
+		thruster_sound_player.play()
+	elif not is_moving and thruster_sound_player.playing:
+		thruster_sound_player.stop()
+	
+	
 	position.x = wrapf(position.x, 0, viewport_size.x)
 	position.y = wrapf(position.y, 0, viewport_size.y)
+	
+	
+	
 
 	if direction.length() > 1.0:
 		direction = direction.normalized()
